@@ -16,6 +16,10 @@ class PostsRepositoryImp implements PostsRepository {
   PostsRepositoryImp(this.networkInfo,
       {required this.remoteDataSource, required this.localDataSource});
 
+  PostModel _getPostModel(Post post) {
+    return PostModel(id: post.id, title: post.title, body: post.body);
+  }
+
   @override
   Future<Either<Failure, List<Post>>> getAllPosts() async {
     //check internet to get form api or Local data source
@@ -43,7 +47,7 @@ class PostsRepositoryImp implements PostsRepository {
         PostModel(id: post.id, title: post.title, body: post.body);
 
     return _getMessage(() {
-      return remoteDataSource.addPost(postModel);
+      return remoteDataSource.addPost(_getPostModel(post));
     });
   }
 
@@ -60,7 +64,7 @@ class PostsRepositoryImp implements PostsRepository {
         PostModel(id: post.id, title: post.title, body: post.body);
 
     return _getMessage(() {
-      return remoteDataSource.updatePost(postModel);
+      return remoteDataSource.updatePost(_getPostModel(post));
     });
   }
 
