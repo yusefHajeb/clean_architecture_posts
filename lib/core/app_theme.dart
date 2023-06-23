@@ -1,3 +1,4 @@
+import 'package:clean_architecture_posts/core/color/appcolor.dart';
 import 'package:flutter/material.dart';
 
 ThemeData appTheme = ThemeData(
@@ -6,25 +7,22 @@ ThemeData appTheme = ThemeData(
   secondaryHeaderColor: Colors.amber,
   fontFamily: 'Lato',
   textTheme: const TextTheme(
-    bodyText1: TextStyle(
-        fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
     headline1: TextStyle(
-        height: 2,
-        fontSize: 17,
-        fontWeight: FontWeight.w500,
-        color: Colors.white),
+        height: 3,
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        color: AppColor.secanderyColor),
     // textAlign: TextAlign.center,
     headline2: TextStyle(
-        height: 2,
-        fontSize: 17,
-        fontWeight: FontWeight.bold,
-        color: Colors.black12),
+        height: 1, fontSize: 16, color: Color.fromARGB(255, 72, 75, 77)
+        // fontWeight: FontWeight.bold,
+        ),
     headline3: TextStyle(
         fontFamily: 'Cairo',
         height: 2,
         fontSize: 14,
         fontWeight: FontWeight.w500,
-        color: Colors.white),
+        color: AppColor.iconsColor),
 
     headline4: TextStyle(
         height: 2,

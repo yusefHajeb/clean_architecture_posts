@@ -1,32 +1,42 @@
 import 'package:clean_architecture_posts/core/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'enjection_container.dart' as di;
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() => runApp(const MyApp());
+import 'features/posts/presentation/bloc/add_update_delete_post/add_update_delete_post_bloc.dart';
+import 'features/posts/presentation/bloc/posts/posts_bloc.dart';
+import 'features/posts/presentation/page/post_page.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: appTheme,
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Posts app'),
-        ),
-        body: const Center(
-          child: Text('Posts'),
-        ),
-      ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+            create: (context) => di.sl<PostsBloc>()..add(GetAllPostsEvent())),
+        BlocProvider(create: (context) => di.sl<AddUpdateDeletePostBloc>()),
+      ],
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Posts App',
+          theme: appTheme,
+          home: PostPage()),
     );
   }
 }
 
-class HomeBage extends StatelessWidget {
-  const HomeBage({super.key});
+// class HomeBage extends StatelessWidget {
+//   const HomeBage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Placeholder();
+//   }
+// }
