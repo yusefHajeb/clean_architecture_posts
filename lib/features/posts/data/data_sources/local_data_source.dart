@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 // import '../../../../core/error/exceptions.dart';
+import 'package:clean_architecture_posts/core/error/expintion.dart';
 import 'package:clean_architecture_posts/core/error/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -37,7 +38,7 @@ class LocalDataSourceImpl implements LocalDataSource {
           .toList();
       return Future.value(jsonToPostModels);
     } else {
-      throw EmptyCashExpention();
+      throw EmptyCasheExpention();
     }
   }
 }

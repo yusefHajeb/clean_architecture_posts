@@ -47,7 +47,7 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
     switch (failure.runtimeType) {
       case ServerFailure:
         return serverFailureMessage;
-      case EmptyCashExpention:
+      case EmptyCasheFailure:
         return emptyCacheFailureMessage;
       case OffLineFailure:
         return offlineFailureMessage;

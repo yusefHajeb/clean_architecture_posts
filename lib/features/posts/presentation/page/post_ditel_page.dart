@@ -14,7 +14,7 @@ import '../widget/post_detial/delete_dialoge_widget.dart';
 
 class PostDitlePage extends StatelessWidget {
   final Post post;
-  const PostDitlePage({super.key, required this.post});
+  const PostDitlePage({required this.post});
 
   @override
   Widget build(BuildContext context) {

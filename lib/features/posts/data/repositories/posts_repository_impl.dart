@@ -28,6 +28,7 @@ class PostsRepositoryImpl implements PostsRepository {
       try {
         final List<PostModel> remotePosts =
             await remoteDataSource.getAllPosts();
+        localDataSource.cachePosts(remotePosts);
         return Right(remotePosts);
       } on ServerExpinton {
         return Left(ServerFailure());
@@ -37,8 +38,8 @@ class PostsRepositoryImpl implements PostsRepository {
         final List<PostModel> localPosts =
             await localDataSource.getCachedPosts();
         return Right(localPosts);
-      } on EmptyCashExpention {
-        return Left(EmptyCashExpention());
+      } on EmptyCasheExpention {
+        return Left(EmptyCasheFailure());
       }
     }
   }

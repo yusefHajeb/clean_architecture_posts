@@ -14,7 +14,7 @@ class PostListWidget extends StatelessWidget {
     return ListView.separated(
         itemBuilder: (context, i) {
           return ListTile(
-            focusColor: Colors.grey[200],
+            focusColor: Colors.grey[400],
             style: ListTileStyle.list,
             leading: Text(posts[i].id.toString()),
             title: Text(

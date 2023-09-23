@@ -14,7 +14,7 @@ import 'post_page.dart';
 class PostAddUpdate extends StatelessWidget {
   final bool isUpdate;
   final Post? post;
-  const PostAddUpdate({super.key, required this.isUpdate, this.post});
+  const PostAddUpdate({required this.isUpdate, this.post});
 
   @override
   Widget build(BuildContext context) {

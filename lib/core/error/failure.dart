@@ -17,6 +17,6 @@ class ServerFailure extends Failure {
   List<Object?> get props => [];
 }
 
-class EmptyCashExpention extends Failure {
+class EmptyCasheFailure extends Failure {
   List<Object?> get props => [];
 }

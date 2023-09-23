@@ -10,11 +10,11 @@ import 'features/posts/presentation/page/post_page.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.init();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp();
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(

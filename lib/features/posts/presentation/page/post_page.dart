@@ -18,7 +18,7 @@ import '../widget/post_page_widget/message_display_widget.dart';
 import '../widget/post_page_widget/post_list_widget.dart';
 
 class PostPage extends StatelessWidget {
-  const PostPage({super.key});
+  const PostPage();
 
   @override
   Widget build(BuildContext context) {
